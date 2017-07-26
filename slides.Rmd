@@ -79,8 +79,38 @@ shinyApp(
 ```
 
 
-## Layout
+## Shiny links
 
-https://shiny.rstudio.com/articles/layout-guide.html
+- layout: https://shiny.rstudio.com/articles/layout-guide.html
+- DT for datatables: 
+    - https://rstudio.github.io/DT/
+    - https://rstudio.github.io/DT/extensions.html
+    - https://rstudio.github.io/DT/shiny.html
+- https://www.r-bloggers.com/the-r-shiny-packages-you-need-for-your-web-apps/
 
+# Interactive graphics
+
+## plotly
+
+```{r eval=FALSE}
+library(plotly)
+data(diamonds)
+p <- ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point(aes(text = paste("Clarity:", clarity))) +
+  geom_smooth(aes(colour = cut, fill = cut)) + facet_wrap(~ cut)
+
+ggplotly(p)
+```
+
+## plotly
+
+```{r echo=FALSE, warning=FALSE, message = FALSE}
+library(plotly)
+data(diamonds)
+p <- ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point(aes(text = paste("Clarity:", clarity))) +
+  geom_smooth(aes(colour = cut, fill = cut)) + facet_wrap(~ cut)
+
+ggplotly(p)
+```
 
