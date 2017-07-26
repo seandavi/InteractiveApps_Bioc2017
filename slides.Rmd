@@ -1,0 +1,86 @@
+---
+title: "Interactive Apps — Bioconductor 2017"
+subtitle: "Developer Day Workshop"
+author: "Sean Davis"
+date: "July 26, 2017"
+output: 
+  revealjs::revealjs_presentation:
+    theme: night
+    highlights: github    
+---
+
+<style type="text/css">
+p { text-align: left; }
+</style>
+
+# Introduction
+ 
+## R is great!
+
+- Statistics, statistics, statistics
+- Dataviz, dataviz, dataviz
+- Highly reproducible data analysis environment and platform
+- Broad and generous user and developer community
+- Cross-platform development (now pretty common)
+
+## But...
+
+- R generally provides a highly personal experience, not a shared one
+- Often, results exported to a static format for sharing
+- Changing visualization or data presentation requires coding, sometimes limiting effectiveness as a data exploration platform
+- Modern data science techniques leverage interactivity
+- Very few standards for using R as a modern web framework
+
+# Enter Shiny and Friends
+
+## Single Page Applications
+
+- gmail
+- google docs
+- online games
+- many others....
+
+https://en.wikipedia.org/wiki/Single-page_application
+
+## Shiny Skeleton
+
+```{r eval=FALSE}
+library(shiny)
+
+shinyApp(
+    ###########################
+    # The "server" function
+    #   - Business goes here
+    ###########################
+    server = function(input,output,session) {
+        
+        # Do important work in here
+        #   - read inputs
+        #   - set up outputs
+        
+    },
+    
+    
+    #########################################
+    # and the "user interface"
+    #   - Just displays user interface and
+    #     provides interactivity features 
+    #     and layout
+    #########################################
+    ui = fluidPage(
+        titlePanel("title panel"),
+        
+        sidebarLayout(
+            sidebarPanel("sidebar panel"),
+            mainPanel("main panel")
+        )
+    )
+)
+```
+
+
+## Layout
+
+https://shiny.rstudio.com/articles/layout-guide.html
+
+
