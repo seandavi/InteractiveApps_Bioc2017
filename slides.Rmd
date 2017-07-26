@@ -99,7 +99,10 @@ p <- ggplot(data = diamonds, aes(x = carat, y = price)) +
   geom_point(aes(text = paste("Clarity:", clarity))) +
   geom_smooth(aes(colour = cut, fill = cut)) + facet_wrap(~ cut)
 
-ggplotly(p)
+ggp_build <- plotly_build(p)
+ggp_build$layout$height = 1000
+ggp_build$layout$width = 1200
+ggp_build
 ```
 
 ## plotly
@@ -111,6 +114,21 @@ p <- ggplot(data = diamonds, aes(x = carat, y = price)) +
   geom_point(aes(text = paste("Clarity:", clarity))) +
   geom_smooth(aes(colour = cut, fill = cut)) + facet_wrap(~ cut)
 
-ggplotly(p)
+ggp_build <- plotly_build(p)
+ggp_build$layout$height = 1000
+ggp_build$layout$width = 1200
+ggp_build
 ```
+
+# Exercises
+
+## Thoughts
+
+1. Produce a PCA (or t-SNE or MDS) plot from a `SummarizedExperiment` instance, colored by an arbitrary factor column in the colData. Add functionality to highlight samples or update text based on hovering. 
+
+2. Write a shiny app that uses NavBar functionality to portray QC plots, MA plots, and density plots from an ExpressionSet (or SummarizedExperiment)
+
+3. Write a BiocPkgExplorer app based on simple functions in https://github.com/seandavi/BiocPkgTools. Filter based on download stats, display download stats, wordclouds based on selected packages.
+
+4. Write a GEO or SRA browser based on data in GEOmetadb or SRAdb.
 
